@@ -1,0 +1,122 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'navigation.html' %}
+<style>
+    .container{
+
+    max-width: 90%;
+    }
+
+    .content{
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        color : white;
+        height: 30px ;
+        width: 91%;
+    }
+</style>
+
+<din class="container-fliud">
+    <img src="{% static 'images/job6.png' %}" style="height:450px;width: 100%; margin-top: 1%">
+</din>
+
+<div class="container" style="background: black ; height: 550px ; margin-top: 2%">
+    <marquee style="color : maroon">
+        <h1 class="text-center">| Our Placed Students |  | Our Placed Students |  | Our Placed Students |</h1>
+   </marquee>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/student8.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Nestle Company </p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/s7.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Facebook </p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/s4.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Instagram </p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/s5.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>PEC </p>
+            </div>
+                
+
+        </div>
+
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/s7.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Facebook</p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/s3.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>HEC </p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/student8.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Imo</p>
+            </div>
+                
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/s1.jpg' %}" style="width:100%; margin-top: 5% ; height : 200px ; border-radius:50%">
+
+            <div class="content">
+            <p>Amozone </p>
+            </div>
+                
+
+        </div>
+
+    </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

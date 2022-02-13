@@ -1,0 +1,123 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'recruiter_navigation.html'  %}
+
+
+<script>
+    function checkpass()
+    {
+        if(document.signup.pwd.value!=document.signup.cpwd.value)
+        {
+            alert('Password and Confirm Password does not match');
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+
+<marquee style="font-family: 'Monotype Corsiva' ; font-size : 25px ; color : yellow ; background-color : black ; font-weight : bold ; margin-top: 1%">
+    Add Jobs Details
+ </marquee>
+ <hr>
+ <form class="container mt-5" name="signup" onsubmit="return checkpass()" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label style="color: black ; font-weight: bold">Job Title</label>
+            <input type="text" class="form-control" name="jobtitle" placeholder="Enter Job Title" required>
+        </div>
+        
+     </div>
+ 
+         <div class="form-row">
+             <div class="form-group col-md-6">
+                 <label style="color: black ; font-weight: bold">Start Date</label>
+                 <input type="date" class="form-control" name="startdate" required>
+             </div>
+
+             <div class="form-group col-md-6">
+                <label style="color: black ; font-weight: bold">End Date</label>
+                <input type="date" class="form-control" name="enddate" required>
+            </div>
+         </div>  
+
+
+
+
+         <div class="form-row">
+            <div class="form-group col-md-6">
+                <label style="color: black ; font-weight: bold">Salary (Per Month)</label>
+                <input type="text" class="form-control" name="salary" required>
+            </div>
+
+            <div class="form-group col-md-6">
+               <label style=" color: black ; font-weight: bold">Company Logo</label>
+               <input type="file" class="form-control" name="logo" required>
+           </div>
+        </div>  
+
+
+
+ 
+         <div class="form-row">
+             <div class="form-group col-md-12">
+                 <label style="color: black ; font-weight: bold">Skills</label>
+                 <input type="text" class="form-control" name="skills" required>
+             </div>
+         </div> 
+
+
+         <div class="form-row">
+            <div class="form-group col-md-6">
+                <label style="color: black ; font-weight: bold">Experience (In Years)</label>
+                <input type="text" class="form-control" name="experience" required>
+            </div>
+
+            <div class="form-group col-md-6">
+               <label style=" color: black ; font-weight: bold">Location</label>
+               <input type="text" class="form-control" name="location" required>
+           </div>
+        </div>  
+
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="color: black ; font-weight: bold">Description</label>
+                <textarea class="form-control" name="description" required></textarea>
+            </div>
+
+            
+        </div> 
+        <input type="submit" value="Submit" class="btn btn-primary" style="color: yellow; width: 100% ; background-color: black; text-align: center ; margin-top: 20px">
+
+</form></br> 
+ 
+ {% include 'footer.html' %}
+
+ 
+
+{% ifequal error "no" %}
+<script>
+    alert("Job Detail has been added");
+    window.location = ( '{% url 'job_list' %}' )
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Try Again! Something went wrong");
+    
+</script>
+{% endifequal %}
+
+
+
+
+{% endblock %}

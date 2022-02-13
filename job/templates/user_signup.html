@@ -1,0 +1,120 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'navigation.html'  %}
+
+<script>
+    function checkpass()
+    {
+        if(document.signup.pwd.value!=document.signup.cpwd.value)
+        {
+            alert('Password and Confirm Password does not match');
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+<marquee style="font-family: 'Monotype Corsiva' ; font-size : 25px ; color : yellow ; background-color : black ; font-weight : bold ; margin-top: 1%">
+   User SignUp
+</marquee>
+<hr>
+<form class="container mt-5" name="signup" onsubmit="return checkpass()" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   
+   <div class="form-row">
+       <div class="form-group col-md-6">
+           <label style="margin-left: 1% ; color: black ; font-weight: bold">First Name</label>
+           <input type="text" class="form-control" name="fname" placeholder="Enter First Name" required>
+       </div>
+       <div class="form-group col-md-6">
+            <label style="margin-left: 1% ; color: black ; font-weight: bold">Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="Enter Last Name" required>
+ 
+        </div>
+    </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 1% ; color: black ; font-weight: bold">Contact</label>
+                <input type="text" class="form-control" name="contact" placeholder="Enter Contact Number" required>
+            </div>
+        </div>  
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 1% ; color: black ; font-weight: bold">Email ID</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter Email Address" required>
+            </div>
+        </div> 
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label style="margin-left: 1% ; color: black ; font-weight: bold">Password</label>
+                <input type="password" class="form-control" name="pwd" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group col-md-6">
+                 <label style="margin-left: 1% ; color: black ; font-weight: bold">Confirm Password</label>
+                 <input type="password" class="form-control" name="cpwd" placeholder="Enter Confirm Password" required>
+      
+             </div>
+         </div>
+
+
+         <div class="form-row">
+            <div class="form-group col-md-6">
+
+                <label style="margin-left: 1% ; color: black ; font-weight: bold">Gender</label>
+                <div style="border : 1px solid lightgrey ; padding : 6px ; border-radius : 6px">
+                <div class="custom-control custom-radio custom-control-inline">
+               
+                <input type="radio" id="customRadioInline1" class="custom-control-input" name="gender" value="Male">
+                <label class="custom-control-label" for="customeRadioInline1">Male</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="gender" value="Female" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+                </div>
+                   </div>
+            </div>
+            
+            
+            <div class="form-group col-md-6">
+                 <label style="margin-left: 1% ; color: black ; font-weight: bold">Image</label>
+                 <input type="file" class="form-control" name="img" required>
+      
+             </div>
+
+             <input type="submit" value="Submit" class="btn btn-primary" style="color: yellow; width: 100% ; background-color: black; text-align: center ; margin-top: 20px">
+         </div>
+     
+     
+     
+
+     
+   
+    
+</form></br> 
+
+{% include 'footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert("SignUp Successful");
+    window.location = ( '{% url 'user_login' %}' )
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Try Again! Something went wrong");
+    
+</script>
+{% endifequal %}
+
+{% endblock %}

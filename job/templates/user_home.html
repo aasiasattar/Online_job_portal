@@ -1,0 +1,126 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'user_navigation.html'  %}
+
+
+<marquee style="font-family: 'Monotype Corsiva' ; font-size : 25px ; color : yellow ; background-color : black ; font-weight : bold ; margin-top: 1%">
+    User Profile
+ </marquee>
+ <hr>
+ <div class="container" >
+     <div class="row">
+         <div class="col-sm-8">
+
+        
+
+ <form class="mt-5" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-left: 1% ; color: black ; font-weight: bold">First Name</label>
+            <input type="text" class="form-control" name="fname" value="{{student.user.first_name}}" required>
+        </div>
+        <div class="form-group col-md-6">
+             <label style="margin-left: 1% ; color: black ; font-weight: bold">Last Name</label>
+             <input type="text" class="form-control" name="lname" value="{{student.user.last_name}}" required>
+  
+         </div>
+     </div>
+ 
+         <div class="form-row">
+             <div class="form-group col-md-12">
+                 <label style="margin-left: 1% ; color: black ; font-weight: bold">Contact</label>
+                 <input type="text" class="form-control" name="contact" value="{{student.mobile}}" required>
+             </div>
+
+             
+         </div>  
+ 
+         <div class="form-row">
+             <div class="form-group col-md-12">
+                 <label style="margin-left: 1% ; color: black ; font-weight: bold">Email ID</label>
+                 <input type="email" class="form-control" name="email" value="{{student.user.username}}" required>
+             </div>
+         </div> 
+         
+         
+ 
+ 
+          <div class="form-row">
+             <div class="form-group col-md-6">
+ 
+                 <label style="margin-left: 1% ; color: black ; font-weight: bold">Gender</label>
+
+
+                    
+
+                      <div style="border : 1px solid lightgrey ; padding : 6px ; border-radius : 6px">
+                        
+                      <div class="custom-control custom-radio custom-control-inline">
+                    
+                         <input type="radio" id="customRadioInline1" class="custom-control-input" name="gender" value="Male" checked>
+                            <label class="custom-control-label" for="customRadioInline1">Male</label>
+                       </div>
+
+                    
+    
+                      <div class="custom-control custom-radio custom-control-inline">
+                          <input type="radio" id="customRadioInline2" name="gender" value="Female" class="custom-control-input" checked>
+                             <label class="custom-control-label" for="customRadioInline2">Female</label>
+                        </div>
+                        
+                        </div>
+
+                     
+
+            </div>
+
+             
+             
+            <div class="form-group col-md-6">
+                  <label style="margin-left: 1% ; color: black ; font-weight: bold">Image</label>
+                  <input type="file" class="form-control" name="img" accept="image/*" >
+       
+              </div>
+ 
+              <input type="submit" value="Submit" class="btn btn-primary" style="color: yellow; width: 100% ; background-color: black; text-align: center ; margin-top: 20px">
+          </div>
+      
+      
+      
+ 
+      
+    
+     
+ </form></br> 
+    </div><!-- col 1 end-->
+    <div class="col-sm-4 mt-5 text-center ">
+        <img src="{{student.image.url}}" width="300px" height="300px">
+    </div>
+   </div>
+</div>
+ 
+ {% include 'footer.html' %}
+
+ 
+
+{% ifequal error "no" %}
+<script>
+    alert("Profile Updated Successfuly");
+    window.location = ( '{% url 'user_home' %}' )
+
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Try Again! Something went wrong");
+    
+</script>
+{% endifequal %}
+
+
+{% endblock %}

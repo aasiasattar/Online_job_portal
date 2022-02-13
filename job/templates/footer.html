@@ -1,0 +1,51 @@
+{% load static %}
+
+<div class="mt-3" style="background-color : black ; width : 100% ; height : 350px">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-4">
+            <h3 class="text-white">Contact Information</h3>
+
+            <p style="color: yellow ; font-size: 18px"><i class="fa fa-map-marker text-danger"></i> street 1, Madina villaz - Airport Road , R-Y-K </p>
+
+            <p style="color: yellow ; font-size: 18px"><i class="fa fa-envelope text-danger"></i> aasiasattar76@gmail.com </p>
+
+            <p style="color: yellow ; font-size: 18px"><i class="fa fa-phone text-danger"></i> P: +92 45456782 / +92 34567213 </p>
+
+            <p style="color: yellow ; font-size: 18px"><i class="fa fa-globe text-danger"></i> W: www.facebook.com </p>
+
+        </div>
+
+
+        <div class="col-md-4 mt-4">
+
+            <h3 class="text-white"> Online Placement </h3>
+
+            <p style="color: yellow ; font-size: 18px"> This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..This is my first content in footer .html..</p>
+
+        </div>
+ 
+        <div class="col-md-4 mt-4">
+            
+            <h3 class="text-white"> Newsletter</h3>
+            <p style="color: yellow ; font-size: 18px"> If you want any extra information then send meyour email id! </p>
+
+            <form method="post" class="form-inline">
+                {% csrf_token %}
+
+                   <input type="email" name="emailid" placeholder="Email ID" required class="form-control mr-2">
+                   <input type="submit" value="Send" class="btn btn-primary">
+
+                
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+     
+
+</div>
+</div>

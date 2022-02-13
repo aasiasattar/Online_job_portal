@@ -1,0 +1,48 @@
+{{% load static %}
+
+{% block content %}
+
+{% include 'admin_navigation.html'  %}
+
+
+<marquee style="font-family: 'Monotype Corsiva' ; font-size : 25px ; color : yellow ; background-color : black ; font-weight : bold ; margin-top: 1%">
+    View  All Student Users
+ </marquee>
+ <hr>
+ <div class="container">
+
+ <table class="table table-hover " id="example">
+     <thead style="background-color: maroon; color: white">
+         <tr>
+            <th>Sr.No.</th> 
+            <th>Full Name</th> 
+            <th>Email ID</th> 
+            <th>Contact</th> 
+            <th>Gender</th>
+            <th>Image.</th> 
+            <th>type</th>
+            <th>Action</th> 
+         </tr>
+     </thead>
+     <tboby>
+         {% for i in data %}
+         <tr>
+             <td>{{ forloop.counter }} </td>
+             <td>{{ i.user.first_name }} {{ i.user.last_name }}</td>
+             <td>{{ i.user.username }}</td>
+             <td>{{ i.mobile }}</td>
+             <td>{{ i.gender }}</td>
+             <td><img src="{{ i.image.url }}" style="width: 70px; height: 40px ; border-radius: 50%"></td>
+             <td>{{ i.type }}</td>
+             <td><a href="{% url 'delete_user' i.user.id %}"  class = "btn btn-danger btn-small fa fa-trash" onclick="return confirm('Are you want to delete this record?')"> Delete</a></td>
+             
+            
+         </tr>
+        {% endfor %}
+     </tboby>
+ </table>
+
+</din>
+
+
+{% endblock %}
